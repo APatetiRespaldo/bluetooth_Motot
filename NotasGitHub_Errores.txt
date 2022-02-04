@@ -1,0 +1,36 @@
+…or create a new repository on the command line
+
+echo "# bluetooth_Motot" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/APatetiRespaldo/bluetooth_Motot.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/APatetiRespaldo/bluetooth_Motot.git
+git branch -M main
+git push -u origin main
+
+
+Corregir Error
+https://stackoverflow.com/questions/52060516/how-to-change-android-minsdkversion-in-flutter-project
+
+
+It is indeed possible to increase minSdkVersion, but it took me way too much time to find it out because google searches mostly yields as result discussions about the absolute minimum Sdk version flutter should be able to support, not how to increase it in your own project.
+
+Like in an Android Studio project, you have to edit the build.gradle file. In a flutter project, it is found at the path ./android/app/build.gradle.
+
+The parameter that needs to be changed is, of course, minSdkVersion 16, bumping it up to what you need (in this case 19).
+
+defaultConfig {
+    // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+    applicationId "com.example.projectname"
+    minSdkVersion 19 //*** This is the part that needs to be changed, previously was 16
+    targetSdkVersion 28
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+}
